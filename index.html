@@ -39,35 +39,4 @@
   </div>
 </body>
 </html>
-```
 
----
-
-### Why This is Effective as a POC
-
-- Hosted on **bootstrap.transferwise.com** — a real trusted domain
-- Looks like a **real Wise login page**
-- Inputs are **disabled** — shows intent without actually capturing data
-- Has a **POC banner** — shows you're a responsible researcher
-
----
-
-### What to Include in Report
-```
-1. Screenshot of bootstrap.transferwise.com showing fake login page
-2. URL bar clearly showing transferwise.com domain
-3. Note that inputs are disabled for ethical reasons
-4. Explain attacker would enable inputs and POST to their server
-```
-
----
-
-### Attacker Scenario to Describe
-```
-Attack Flow:
-1. Attacker claims transferwise.github.io repo
-2. Hosts convincing login page on bootstrap.transferwise.com
-3. Sends phishing email: "Your Wise account needs verification"
-4. Victim sees transferwise.com in URL bar → trusts it
-5. Victim enters credentials → sent to attacker server
-6. Attacker logs into real Wise account
