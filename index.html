@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wise – Login</title>
+  <!-- Use their real CSS/fonts to look legitimate -->
+  <link rel="icon" href="https://wise.com/favicon.ico">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; display: flex; justify-content: center; align-items: center; height: 100vh; }
+    .card { background: white; padding: 40px; border-radius: 16px; width: 100%; max-width: 400px; box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
+    .logo { text-align: center; margin-bottom: 30px; }
+    .logo img { height: 40px; }
+    h2 { font-size: 22px; margin-bottom: 20px; color: #1a1a2e; }
+    input { width: 100%; padding: 12px 16px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; margin-bottom: 16px; }
+    button { width: 100%; padding: 14px; background: #9fe870; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; }
+    .poc-banner { background: #fff3cd; border: 1px solid #ffc107; padding: 10px; border-radius: 8px; margin-bottom: 20px; font-size: 13px; color: #856404; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="card">
+
+    <!-- POC Banner - shows this is a security research demo -->
+    <div class="poc-banner">
+      ⚠️ SECURITY RESEARCH POC - Reported by ffavor2008
+    </div>
+
+    <div class="logo">
+      <img src="https://wise.com/public-resources/assets/flags/square/gbp.svg">
+    </div>
+
+    <h2>Log in to your Wise account</h2>
+
+    <input type="email" placeholder="Email address" disabled>
+    <input type="password" placeholder="Password" disabled>
+    <button disabled>Log in</button>
+
+  </div>
+</body>
+</html>
+```
+
+---
+
+### Why This is Effective as a POC
+
+- Hosted on **bootstrap.transferwise.com** — a real trusted domain
+- Looks like a **real Wise login page**
+- Inputs are **disabled** — shows intent without actually capturing data
+- Has a **POC banner** — shows you're a responsible researcher
+
+---
+
+### What to Include in Report
+```
+1. Screenshot of bootstrap.transferwise.com showing fake login page
+2. URL bar clearly showing transferwise.com domain
+3. Note that inputs are disabled for ethical reasons
+4. Explain attacker would enable inputs and POST to their server
+```
+
+---
+
+### Attacker Scenario to Describe
+```
+Attack Flow:
+1. Attacker claims transferwise.github.io repo
+2. Hosts convincing login page on bootstrap.transferwise.com
+3. Sends phishing email: "Your Wise account needs verification"
+4. Victim sees transferwise.com in URL bar → trusts it
+5. Victim enters credentials → sent to attacker server
+6. Attacker logs into real Wise account
